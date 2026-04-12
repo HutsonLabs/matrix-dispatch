@@ -1,0 +1,27 @@
+{
+  "name": "matrix-dispatch",
+  "version": "0.1.0",
+  "description": "Bridge Matrix messages to CLI tools (Claude, Gemini, Aider, Codex)",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "matrix-dispatch": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": ["matrix", "claude", "gemini", "aider", "codex", "cli", "bridge", "dispatch"],
+  "author": "Andrew Hutson",
+  "license": "MIT",
+  "dependencies": {
+    "marked": "^18.0.0",
+    "matrix-js-sdk": "^41.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "typescript": "^6.0.2"
+  }
+}
