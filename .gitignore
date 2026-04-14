@@ -2,5 +2,6 @@ node_modules/
 dist/
 *.js.map
 dispatch.json
+com.qflow.matrix-clark.plist
 .env
 *.log
