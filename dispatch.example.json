@@ -3,42 +3,34 @@
     "claude": {
       "name": "claude",
       "command": "claude",
-      "baseArgs": ["-p", "--output-format", "json", "--allowedTools", "Read,Edit,Bash,Grep,Glob,Agent,mcp__matrix__matrix_send_message"],
+      "baseArgs": ["-p", "--output-format", "json", "--dangerously-skip-permissions", "--system-prompt", "You are a helpful assistant on Matrix chat. Keep responses under 10 lines. Use markdown formatting. Be direct and concise."],
       "messageFlag": "positional",
       "resumeFlag": "--resume",
       "outputFormat": "json",
       "responsePath": "result",
       "sessionIdPath": "session_id",
-      "cwd": "/Users/homelab/repos",
+      "cwd": "/path/to/your/repos",
       "timeout": 600000
-    },
-    "gemini": {
-      "name": "gemini",
-      "command": "gemini",
-      "baseArgs": [],
-      "messageFlag": "positional",
-      "outputFormat": "text",
-      "timeout": 300000
     }
   },
   "bots": [
     {
-      "name": "claude",
+      "name": "gary",
       "provider": "claude",
-      "matrixUserId": "@jerry:chat.hutson.cloud",
+      "matrixUserId": "@gary:your.matrix.server",
       "matrixAccessToken": "YOUR_ACCESS_TOKEN",
-      "matrixHomeserver": "https://chat.hutson.cloud",
-      "rooms": ["!RKtQqnKSOnCEVvdukf:chat.hutson.cloud"],
-      "extraArgs": ["--allowedTools", "Read,Edit,Bash,Grep,Glob"]
+      "matrixHomeserver": "https://your.matrix.server",
+      "rooms": [],
+      "ignoreSenders": ["@other-bot:your.matrix.server"]
     },
     {
-      "name": "gemini-helper",
-      "provider": "gemini",
-      "matrixUserId": "@gemini-bot:chat.hutson.cloud",
-      "matrixAccessToken": "YOUR_GEMINI_BOT_TOKEN",
-      "matrixHomeserver": "https://chat.hutson.cloud",
-      "triggerPrefix": "!gemini ",
-      "rooms": ["!RKtQqnKSOnCEVvdukf:chat.hutson.cloud"]
+      "name": "clark",
+      "provider": "claude",
+      "matrixUserId": "@clark:your.matrix.server",
+      "matrixAccessToken": "YOUR_ACCESS_TOKEN",
+      "matrixHomeserver": "https://your.matrix.server",
+      "rooms": [],
+      "ignoreSenders": ["@other-bot:your.matrix.server"]
     }
   ]
 }
