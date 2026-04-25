@@ -156,8 +156,12 @@ export class MatrixBot {
         await this.sendMessage(roomId, responseText);
       }
 
-      // React with checkmark on success, warning on non-zero exit
-      const emoji = result.exitCode === 0 ? '\u2705' : '\u26A0\uFE0F';
+      // React with appropriate emoji based on result
+      const emoji = result.exitCode === 0
+        ? '\u2705'       // checkmark
+        : result.timedOut
+          ? '\u23F1\uFE0F'  // stopwatch for timeout
+          : '\u26A0\uFE0F'; // warning for other failures
       await this.sendReaction(roomId, eventId, emoji);
 
     } catch (err) {

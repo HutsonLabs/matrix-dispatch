@@ -79,4 +79,5 @@ export interface CliResult {
   sessionId?: string;
   exitCode: number;
   durationMs: number;
+  timedOut?: boolean;
 }

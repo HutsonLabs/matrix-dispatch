@@ -73,9 +73,21 @@ export async function runCli(
       reject(new Error(`Failed to spawn ${provider.command}: ${err.message}`));
     });
 
-    proc.on('close', (code) => {
+    proc.on('close', (code, signal) => {
       const durationMs = Date.now() - startTime;
       const exitCode = code ?? 1;
+
+      // Detect timeout kill (SIGTERM = exit 143)
+      if (signal === 'SIGTERM' || exitCode === 143) {
+        const timeoutSec = Math.round((provider.timeout || 600_000) / 1000);
+        resolve({
+          response: `⏱ Timed out after ${timeoutSec}s. The task was too complex for a single turn — try breaking it into smaller steps, or increase the provider timeout.`,
+          exitCode,
+          durationMs,
+          timedOut: true,
+        });
+        return;
+      }
 
       try {
         const result = parseOutput(provider, stdout, stderr);
