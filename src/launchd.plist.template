@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>cloud.hutson.matrix-dispatch</string>
+    <string>local.matrix-dispatch</string>
 
     <key>ProgramArguments</key>
     <array>
