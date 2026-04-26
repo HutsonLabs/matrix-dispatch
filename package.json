@@ -17,6 +17,7 @@
   "author": "Andrew Hutson",
   "license": "MIT",
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
     "marked": "^18.0.0",
     "matrix-js-sdk": "^41.3.0"
   },

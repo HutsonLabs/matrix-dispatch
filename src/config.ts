@@ -1,12 +1,19 @@
 import { readFileSync, existsSync } from 'fs';
-import { resolve } from 'path';
+import { resolve, dirname } from 'path';
+import { fileURLToPath } from 'url';
 import { DispatchConfig, ProviderConfig, BotConfig } from './types.js';
 import { PROVIDER_PRESETS } from './providers.js';
+
+const HERE = dirname(fileURLToPath(import.meta.url));
 
 const DEFAULT_CONFIG_PATHS = [
   './dispatch.json',
   '~/.config/matrix-dispatch/config.json',
   '~/.matrix-dispatch.json',
+  // Fallback: dispatch.json next to the installed binary. Lets `send`
+  // and `mcp` modes work when invoked from any cwd (e.g. iceberg's
+  // run-tasks.sh) without callers needing to plumb an explicit path.
+  resolve(HERE, '..', 'dispatch.json'),
 ];
 
 /**
