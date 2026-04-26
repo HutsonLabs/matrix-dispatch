@@ -4,7 +4,7 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.qflow.matrix-clark</string>
+    <string>com.example.matrix-dispatch</string>
     <key>Program</key>
     <string>/opt/homebrew/bin/node</string>
     <key>ProgramArguments</key>

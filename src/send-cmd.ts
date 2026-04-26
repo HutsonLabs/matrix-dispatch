@@ -96,9 +96,9 @@ Options:
   -h, --help             Show this help
 
 Examples:
-  matrix-dispatch send --to @hutson:chat.hutson.cloud --message "deploy ok"
-  matrix-dispatch send -r '#ops:chat.hutson.cloud' -m "build green" --notice
-  echo "$summary" | matrix-dispatch send -t @hutson:chat.hutson.cloud
+  matrix-dispatch send --to @user:matrix.example.com --message "deploy ok"
+  matrix-dispatch send -r '#ops:matrix.example.com' -m "build green" --notice
+  echo "$summary" | matrix-dispatch send -t @user:matrix.example.com
 `);
 }
 
